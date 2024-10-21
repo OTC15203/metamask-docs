@@ -18,6 +18,7 @@ interface TagItem {
 interface DetailsBoxProps {
   method: string;
   description: string | null;
+  summary: string | null;
   params: MethodParam[];
   components: SchemaComponents;
   result: any;
@@ -28,6 +29,7 @@ interface DetailsBoxProps {
 export default function DetailsBox({
   method,
   description,
+  summary,
   params,
   components,
   result,
@@ -46,13 +48,21 @@ export default function DetailsBox({
         </div>
       )}
       <Heading as="h1">{method}</Heading>
-      <MDContent content={description} />
+      {summary !== null && (
+        <p style={{ marginBottom: "0.5rem" }}>
+          <strong>Summary: </strong>
+          <MDContent content={summary} />
+        </p>
+      )}
+      {description !== null && (
+        <MDContent content={description} />
+      )}
       {extraContent && <div className="padding-top--lg">{extraContent}</div>}
       <Heading
         as="h2"
         className={clsx(
           styles.secondaryHeading,
-          "padding-top--lg padding-bottom--md"
+          "padding-top--lg padding-bottom--md",
         )}
       >
         Parameters
@@ -67,7 +77,7 @@ export default function DetailsBox({
         className={clsx(
           styles.secondaryHeading,
           styles.borderBottomLine,
-          "padding-top--lg padding-vert--md"
+          "padding-top--lg padding-vert--md",
         )}
       >
         Returns

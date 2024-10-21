@@ -11,7 +11,7 @@ Returns tracing results by executing all transactions in the specified block num
 
 ## Parameters
 
-- `blockNumber`: (string) _[required]_ block number as a hexidecimal string, or one of the string tags `latest`, `earliest`
+- `blockNumber`: (string) _[required]_ block number as a hexadecimal string, or one of the string tags `latest`, `earliest`
   , or `pending`, as [described in the default block parameters](https://ethereum.org/en/developers/docs/apis/json-rpc/#default-block).
 - Optional tracing options object with the following fields:
   - `tracer`: (string) _[optional]_ type of tracer. Supports [`callTracer`](index.md#calltracer) or
@@ -39,6 +39,13 @@ curl https://mantle-mainnet.infura.io/v3/<YOUR-API-KEY> \
   -X POST \
   -H "Content-Type: application/json" \
   -d '{"jsonrpc": "2.0", "method": "debug_traceBlockByNumber", "params": ["0x4d0c", {"tracer": "callTracer"}], "id": 1}'
+```
+
+  </TabItem>
+  <TabItem value="WSS" label="WSS" default>
+
+```bash
+wscat -c wss://mantle-mainnet.infura.io/ws/v3/<YOUR-API-KEY> -x '{"jsonrpc": "2.0", "method": "debug_traceBlockByNumber", "params": ["0x4d0c", {"tracer": "callTracer"}], "id": 1}'
 ```
 
   </TabItem>

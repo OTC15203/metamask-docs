@@ -9,6 +9,9 @@
 .cardHeader {
   border-bottom: 1px solid #848c96;
   padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .cardHeading {
@@ -30,4 +33,35 @@
 .responseBlock {
   max-height: 400px;
   overflow-y: auto;
+}
+
+.resetResponseBtn {
+  display: block;
+  background: none;
+  border: 0;
+}
+
+.runBtnWrap {
+  display: flex;
+  justify-content: center;
+  min-width: 109px;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

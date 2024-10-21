@@ -1,6 +1,6 @@
 import React from "react";
 import Card, { type CardItem } from "@site/src/components/Card";
-import styles from "./CardSection.module.css";
+import styles from "./cardsection.module.css";
 
 const CardList: CardItem[] = [
   {
@@ -8,8 +8,8 @@ const CardList: CardItem[] = [
     link: "/wallet",
     description: (
       <>
-        Integrate your dapp with MetaMask using the Wallet API. You can interact
-        with your users&apos; Ethereum accounts from multiple dapp platforms.
+        Integrate your dapp with MetaMask using MetaMask SDK and the Wallet API.
+        You can interact with your users&apos; EVM accounts from multiple dapp platforms.
       </>
     ),
   },
@@ -28,8 +28,9 @@ const CardList: CardItem[] = [
     link: "/services",
     description: (
       <>
-        Build and scale your dapp or Snap using services provided by MetaMask and Infura.
-        This includes APIs that optimize essential development tasks.
+        Build and scale your dapp or Snap using services provided by MetaMask
+        and Infura. This includes APIs that optimize essential development
+        tasks.
       </>
     ),
   },

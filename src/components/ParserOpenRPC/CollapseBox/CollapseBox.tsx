@@ -14,35 +14,33 @@ interface CollapseBoxProps {
 
 export const CollapseBox = ({
   children,
-  isInitCollapsed = false,
+  isInitCollapsed = true,
 }: CollapseBoxProps) => {
-  const { collapsed, toggleCollapsed } = useCollapsible({ initialState: true });
+  const { collapsed, setCollapsed } = useCollapsible({ initialState: isInitCollapsed });
   const { colorMode } = useColorMode();
   useEffect(() => {
-    if (isInitCollapsed) {
-      toggleCollapsed();
-    }
+    setCollapsed(isInitCollapsed);
   }, [isInitCollapsed]);
   return (
     <div
       className={clsx(
         styles.collapseWrapper,
-        !collapsed && styles.collapsedWrapperView
+        !collapsed && styles.collapsedWrapperView,
       )}
     >
       <button
         className={clsx(
           styles.collapseBtn,
           !collapsed && styles.collapsedBtnView,
-          colorMode === "light" && styles.collapsedBtnLightHover
+          colorMode === "light" && styles.collapsedBtnLightHover,
         )}
-        onClick={toggleCollapsed}
+        onClick={() => setCollapsed((expanded) => !expanded)}
       >
         {collapsed ? "Show child attributes" : "Hide child attributes"}
         <div
           className={clsx(
             styles.collapseIcon,
-            !collapsed && styles.collapsedIconView
+            !collapsed && styles.collapsedIconView,
           )}
         ></div>
       </button>
